@@ -1,4 +1,8 @@
 import time
+import sys
+
+# Lift Python's safety ceiling to allow strings with up to 1,000,000 digits
+sys.set_int_max_str_digits(1000000)
 
 def iot_algebraic_engine(shape):
     """
@@ -60,9 +64,11 @@ if __name__ == "__main__":
     # Run a compact, efficient loop suitable for an embedded system memory wall
     history = iot_algebraic_engine(shape=25)
     
-    # Extract a massive 30+ digit seed from step 20 using pure whole-numbers
+    # Extract a massive seed from step 20 using pure whole-numbers
     seed = iot_generate_hardware_seed(history, step_index=20)
     
     print("\n--- IoT System Output ---")
     print(f"Execution Time : {time.time() - start_time:.4f} seconds")
-    print(f"Generated Seed : {seed}")
+    # Truncate string output slightly just so it doesn't flood the console window
+    seed_str = str(seed)
+    print(f"Generated Seed : {seed_str[:50]}... [Total Length: {len(seed_str)} digits]")
