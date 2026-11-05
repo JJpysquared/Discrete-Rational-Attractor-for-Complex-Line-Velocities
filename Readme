@@ -66,3 +66,23 @@ Zeta Output at your point  : (Real + Imaginary proximity to 0)
 Closest True Zero Height   : [True Zero Value]
 Absolute Margin of Error   : [Delta Error]
 ```
+
+
+| Step Window | Calculated Altitude ($t$) | Closest True Zero | Margin of Error | Baseline Random Error | Performance Ratio |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| T10 $\rightarrow$ T11 | 166.6552 | 167.0422 | **0.3870** | 0.4792 | 1.24x Faster |
+| T11 $\rightarrow$ T12 | 63.0049 | 59.3470 | **3.6579** | 0.6814 | 5.37x Under |
+| T12 $\rightarrow$ T13 | 600.4635 | 601.0479 | **0.5844** | 0.3445 | 1.70x Under |
+| T13 $\rightarrow$ T14 | 1201.0178 | Out of Bounds | N/A | 0.2990 | N/A |
+| T14 $\rightarrow$ T15 | 1200.6907 | 1200.6157 | **0.0750** | 0.2990 | 3.99x Faster |
+| T15 $\rightarrow$ T16 | 310.0240 | 310.1095 | **0.0854** | 0.4029 | 4.72x Faster |
+| T16 $\rightarrow$ T17 | 2213.8428 | 2213.7003 | **0.1425** | 0.2678 | 1.88x Faster |
+| T17 $\rightarrow$ T18 | 3500.4159 | 3500.6844 | **0.2685** | 0.2484 | 1.08x Under |
+| T18 $\rightarrow$ T19 | 5394.3860 | 5226.3515 | **168.0344** | 0.2325 | 722.64x Under |
+| T19 $\rightarrow$ T20 | 3252.9433 | 3252.8178 | **0.1255** | 0.2513 | 2.00x Faster |
+| T20 $\rightarrow$ T21 | 4077.7556 | 4077.8544 | **0.0987** | 0.2426 | 2.46x Faster |
+| T21 $\rightarrow$ T22 | 15257.5726 | 15257.8264 | **0.2537** | 0.2015 | 1.26x Under |
+| T22 $\rightarrow$ T23 | 73172.6268 | 73172.9094 | **0.2827** | 0.1678 | 1.68x Under |
+| T23 $\rightarrow$ T24 | 20294.4382 | 20294.2672 | **0.1710** | 0.1944 | 1.14x Faster |
+| T24 $\rightarrow$ T25 | 163618.9180 | 163619.5916 | **0.6735** | 0.1545 | 4.36x Under |
+| T25 $\rightarrow$ T26 | 81809.4623 | 81809.7223 | **0.2600** | 0.1658 | 1.57x Under |
