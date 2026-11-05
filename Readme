@@ -1,72 +1,7 @@
 Discrete Rational Attractor for Complex Line Velocities.
 
-A Python script that generates rational coefficient sequences to dynamically approximate and verify non-trivial zeros of the **Riemann Zeta function** along the critical line (s = 0.5 + ti). 
 
-By utilizing **SymPy** for exact rational arithmetic and **mpmath** for high-precision complex analysis, the script constructs a stabilization curve to isolate localized search coordinates for zeta zeros.
-
-## Features
-
-*   **Exact Rational Generation:** Uses SymPy's symbolic math engine to maintain perfect precision in coefficient numerators without floating-point decay.
-*   **Arithmetic Braking Strategy:** Implements an integer-based step-modifier (`integer_brake`) that stabilizes the acceleration curve of the historical-memory sequence.
-*   **Automated Root Extraction:** Programmatically extracts integer numerators to evaluate structural quadratic constraints.
-*   **High-Precision Zero Verification:** Computes localized coordinates to 30 decimal places and benchmarks them directly against true Riemann Zeta non-trivial zeros using a localized root-finding algorithm.
-
-## How It Works
-
-The script executes in two distinct phases:
-
-### Phase 1: Rational Coefficient Generation (`cont_sum_critical_line`)
-The function constructs a sequence of symbolic terms (\(T_k\)). To avoid destructive floating-point noise, it introduces an `integer_brake = (k // 2) + 1` to scale structural physics natively through fractions.
-
-### Phase 2: Solving and Benchmarking (`solve_and_verify_zeros`)
-Using consecutive terms (\(T_k\) and \(T_{k+1}\)), the script automates the balancing equation:
-
-\[T_k \cdot n + \frac{\text{Num}(T_{k+1})}{n} - n = 0\]
-
-This reduces to a quadratic constraint where the pure imaginary height t can be isolated. The resulting coordinate s = 0.5 + ti is then fed into `mpmath.zeta(s)` to measure how closely it mirrors a true zero.
-
-## Prerequisites
-
-You will need Python 3.x and the following mathematical libraries installed:
-
-```bash
-pip install mpmath sympy
-```
-
-## Usage
-
-Simply run the script via your terminal:
-
-```bash
-python script_name.py
-```
-
-### Configuring the Search
-You can modify the execution behavior inside the `__main__` block:
-*   `shape`: Controls how many historical-memory steps are pre-generated (default: `50`).
-*   `target_step`: Determines which step's consecutive terms are solved to isolate a zero (default: `20`).
-
-```python
-if __name__ == "__main__":
-    # Generate the terms
-    terms = cont_sum_critical_line(shape=50)
-    
-    # Analyze a specific step sequence
-    solve_and_verify_zeros(terms, target_step=20)
-```
-
-## Sample Output
-
-```text
---- Phase 1: Generating Rational Coeffs ---
-
---- Results for Step T20 -> T21 ---
-Calculated Coordinates (s) : 0.5 + [Calculated Height]i
-Zeta Output at your point  : (Real + Imaginary proximity to 0)
-Closest True Zero Height   : [True Zero Value]
-Absolute Margin of Error   : [Delta Error]
-```
-
+A Zero-FPU, O(1) Memory Discrete Attractor for Cryptographic Seeding
 
 | Step Window | Calculated Altitude ($t$) | Closest True Zero | Margin of Error | Baseline Random Error | Performance Ratio |
 | :--- | :--- | :--- | :--- | :--- | :--- |
