@@ -1,0 +1,21 @@
+from sympy import symbols
+
+def cont_sum(shape):
+    n = symbols('n')
+    coeff_sums = []
+    for k in range(2, shape):
+        pieces = [n/k, k*n]
+        for c in coeff_sums:
+            pieces.append(c*n)
+        expr = sum(pieces)
+        coeff_sums.append(expr/n)
+        print(f"T{k} =", expr)
+    return coeff_sums
+
+
+R_sum=cont_sum(100)
+"""
+R_sum=cont_sum(df.shape[0])
+print(R_sum[0])
+"""
+
