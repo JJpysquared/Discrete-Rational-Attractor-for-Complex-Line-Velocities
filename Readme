@@ -1,4 +1,4 @@
-# Riemann Zeta Critical Line Solver & Verifier
+Discrete Rational Attractor for Complex Line Velocities.
 
 A Python script that generates rational coefficient sequences to dynamically approximate and verify non-trivial zeros of the **Riemann Zeta function** along the critical line (s = 0.5 + ti). 
 
